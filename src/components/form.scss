@@ -1,216 +1,186 @@
 $font-color: #e77c2f;
 
-
 .personLogin {
-    width: 100%;
-    height: 80vh;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .form {
+    height: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
+    padding: 5px;
 
-    
+    form {
+      display: flex;
+      background-color: antiquewhite;
+      color: $font-color;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      width: 55%;
+      height: 70%;
+      padding: 5px;
+      padding-top: 20px;
+      border-radius: 20px;
 
-    .form {
-        height: 100%;
-        width: 50%;
-
+      .labelInput {
+        position: relative;
         display: flex;
         flex-direction: column;
-        gap: 20px;
-
         align-items: center;
+        width: 100%;
+        height: 60px;
+        padding-top: 20px;
 
-        padding: 5px;
+        input {
+          width: 80%;
+          height: 30px;
+          outline: none;
+          border: none;
+          padding-left: 5px;
+          background: transparent;
+          border-bottom: 1px solid black;
 
-        form {
-            display: flex;
-            background-color: antiquewhite;
-            color: $font-color;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            width: 55%;
-            height: 70%;
-            padding: 5px;
-            padding-top: 20px;
-            border-radius: 20px;
-
-            .labelInput {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                height: 60px;
-                padding-top: 20px;
-
-                input {
-                    width: 80%;
-                    height: 30px;
-                    outline: none;
-                    border: none;
-                    padding-left: 5px;
-                    background: transparent;
-                    border-bottom: 1px solid black;
-
-                    &:focus {
-                        border: 1px solid;
-                        border-color: #e77c2f;
-                        box-shadow: 2px 2px orange;
-                    }
-                }
-
-                label {
-                    align-self: flex-start;
-                    font-weight: 500;
-                    position: absolute;
-                    left: 35px;
-                }
-                
-
-                input:focus+label,
-                input:valid+label {
-                    font-size: 14px;
-                    top: 0px;
-                    left: 32px;
-                    padding: 0px 5px 0px 5px;
-                }
-
-                .eyeBtn {
-                    cursor: pointer;
-                    position: absolute;
-                    left: 305px;
-                    top: 25px;
-                }
-            }
-
-            button {
-                width: 83%;
-                height: 30px;
-                font-weight: 500;
-                border-radius: 20px;
-                cursor: pointer;
-                background-color: orange;
-            }
-
+          &:focus {
+            border: 1px solid;
+            border-color: #e77c2f;
+            box-shadow: 2px 2px orange;
+          }
         }
 
+        label {
+          align-self: flex-start;
+          font-weight: 500;
+          position: absolute;
+          left: 35px;
+        }
 
+        input:focus + label,
+        input:valid + label {
+          font-size: 14px;
+          top: 0px;
+          left: 32px;
+          padding: 0px 5px 0px 5px;
+        }
+
+        .eyeBtn {
+          cursor: pointer;
+          position: absolute;
+          left: 295px;
+          top: 25px;
+        }
+      }
     }
+  }
 }
 .logo {
-    text-decoration: none;
+  text-decoration: none;
 }
 .personRegister {
-    margin-top: 0px;
-    width: 100%;
-    height: 100vh;
+  margin-top: 0px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .form {
+    height: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-   
-    .form {
-        height: 100%;
-        width: 50%;
+    justify-content: space-around;
+    padding: 5px;
+
+    form {
+      display: flex;
+      background-color: antiquewhite;
+      color: $font-color;
+      flex-direction: column;
+      align-items: center;
+      width: 55%;
+      height: 80%;
+      padding: 5px;
+      padding-top: 25px;
+      border-radius: 20px;
+      gap: 20px;
+
+      .labelInput {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 5px;
+        width: 100%;
 
-        form {
-            display: flex;
-            background-color: antiquewhite;
-            color: $font-color;
-            flex-direction: column;
-            align-items: center;
-            width: 55%;
-            height: 70%;
-            padding: 5px;
-            padding-top: 25px;
-            border-radius: 20px;
-            gap: 20px;
-        
-
-            .labelInput {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-
-                .info {
-                    width: 80%;
-                    display: flex;
-                    align-items: center;
-                    font-size: 12px;
-                    margin-top: 5px;
-                    border-radius: 20px;
-                    span{
-                        padding-top: 3px;
-                    }
-                }
-
-                input {
-                    width: 80%;
-                    height: 30px;
-                    outline: none;
-                    border: none;
-                    padding-left: 5px;
-                    background: transparent;
-                    border-bottom: 1px solid black;
-
-                    &:focus {
-                        border: 1px solid;
-                        border-color: #e77c2f;
-                        box-shadow: 2px 2px orange;
-                    }
-                }
-
-                label {
-                    padding-left: 35px;
-                    align-self: flex-start;
-                    font-weight: 500;
-                    cursor: pointer;
-                }
-
-                .eyeBtn {
-                    position: absolute;                  
-                    right: 40px;
-                    top: 25px;          
-                }
-            }
-
-            button {
-                width: 83%;
-                height:30px;
-                font-weight: 500;
-                border-radius: 20px;
-                cursor: pointer;
-                background-color: orange;
-            }
-
+        .info {
+          width: 80%;
+          display: flex;
+          align-items: center;
+          font-size: 12px;
+          margin-top: 5px;
+          border-radius: 20px;
+          span {
+            padding-top: 3px;
+          }
         }
 
-    }
+        input {
+          width: 80%;
+          height: 30px;
+          outline: none;
+          border: none;
+          padding-left: 5px;
+          background: transparent;
+          border-bottom: 1px solid black;
 
+          &:focus {
+            border: 1px solid;
+            border-color: #e77c2f;
+            box-shadow: 2px 2px orange;
+          }
+        }
+
+        label {
+          padding-left: 35px;
+          align-self: flex-start;
+          font-weight: 500;
+          cursor: pointer;
+        }
+
+        .eyeBtn {
+          position: absolute;
+          right: 40px;
+          top: 27px;
+        }
+      }
+    }
+  }
 }
 .register_login {
-    width: 55%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .registerBtn {
-        width: 83%;
-        button {
-            width: 100%;
-            height: 30px;
-            background-color: orange;
-            font-weight: 500;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-    }
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.registerBtn {
+  width: 83%;
+  button {
+    width: 100%;
+    height: 30px;
+    background-color: orange;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+  }
 }

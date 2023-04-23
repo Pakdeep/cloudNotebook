@@ -18,7 +18,13 @@ const Login = () => {
   return (
     <div className="personLogin">
       <Link to="/" className="logo">
-        <h1><Logo/></h1>
+        <h1
+          style={{
+            marginTop: "10px",
+          }}
+        >
+          <Logo />
+        </h1>
       </Link>
       <div className="form">
         {" "}
@@ -60,14 +66,22 @@ const Login = () => {
               style={{ display: "none" }}
             />
           </div>
-          <button type="submit">Login</button>
+          <div className="registerBtn">
+            <button type="submit">Login</button>
+          </div>
           <h5>The T&C area</h5>
         </form>{" "}
         <div className="register_login">
-          <h4>
-            <span>-----------</span> New to <Logo/>
-            <span>-----------</span>{" "}
-          </h4>
+          <h5
+            style={{
+              display: "flex",
+              gap: "2px",
+            }}
+          >
+            <span>----------</span> New to
+            <Logo />
+            <span>----------</span>{" "}
+          </h5>
           <Link to="/register" className="registerBtn">
             {" "}
             <button>Sign Up</button>
