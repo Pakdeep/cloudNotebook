@@ -1,32 +1,32 @@
 import React from "react";
 
-const NoteItem = () => {
-  const hanndleEdit = (id) => {
-    console.log("Edit button is clicked");
-  };
-  const handleDelete = (id) => {
-    console.log("Delete button is clicked");
-  }; 
-   const handleExpand = (id) => {
-    console.log("Expand button is clicked");
-  };
+const NoteItem = (props) => {
 
-  return (
+  const {note}=props;
+  const hanndleEdit = () => {
+    console.log(note.id);
+  };
+  const handleDelete = () => {
+    console.log(note.id);
+
+  }; 
+  //  const handleExpand = () => {
+  //   console.log(note.id);
+
+  // };
+
+  return (    
+       
     <div className="noteItem">
-      <div className="title">
-        <h3>This is title </h3>{" "}
-        <button className="expand" onClick={handleExpand}>
+      <div className="title">        
+        <h3>{note.title} </h3>{" "}
+        {/* <button className="expand" onClick={handleExpand}>
           {" "}
           <i className="fa-solid fa-up-right-and-down-left-from-center"></i>
-        </button>
+        </button> */}
       </div>
       <h3 className="desc">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error
-        provident assumenda corrupti quis facilis, amet recusandae quisquam
-        dignissimos iure qui. Rem quae corporis ratione assumenda accusamus
-        fugit numquam nihil aspernatur dolores molestiae. Illo perferendis cum
-        asperiores, commodi officiis laudantium facere sit distinctio expedita
-        totam? At quasi quidem voluptas. Itaque, esse.
+       {note.content}
       </h3>
       <div className="icons">
         <button onClick={hanndleEdit}>
@@ -37,6 +37,7 @@ const NoteItem = () => {
         </button>
       </div>
     </div>
+   
   );
 };
 

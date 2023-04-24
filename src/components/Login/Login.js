@@ -1,9 +1,31 @@
 import React from "react";
 import { UilEye, UilEyeSlash } from "@iconscout/react-unicons";
 import { Link } from "react-router-dom";
-import "../form.scss";
 import Logo from "../../Logo";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "../../state/index";
+import "../form.scss";
 const Login = () => {
+  const dispatch = useDispatch();
+  const { signIn } = bindActionCreators(actionCreators, dispatch);
+  const [state, setState] = useState({
+    email: "",
+    password: "",
+  });
+  console.log(signIn);
+  const handleChange = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
+  console.log(state);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signIn(state);
+  };
   const myFunction = () => {
     var x = document.getElementById("password");
     var y = document.getElementById("eyeSlash");
@@ -26,13 +48,20 @@ const Login = () => {
           <Logo />
         </h1>
       </Link>
-      <div className="form">
+      <div className="form" onSubmit={handleSubmit}>
         {" "}
         <form action="">
           <div className="labelInput">
             {" "}
-            <input type="text" name="" id="name" required autoComplete="off" />
-            <label htmlFor="name" required>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              required
+              autoComplete="off"
+              onChange={handleChange}
+            />
+            <label htmlFor="email" required>
               Email or mobile phone number
             </label>
           </div>
@@ -40,10 +69,11 @@ const Login = () => {
             {" "}
             <input
               type="password"
-              name=""
+              name="password"
               id="password"
               required
               autoComplete="off"
+              onChange={handleChange}
             />
             <label htmlFor="password">Password</label>
             <label

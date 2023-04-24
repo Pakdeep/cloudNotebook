@@ -14,9 +14,13 @@ const Home = () => {
   return (   
     <>
     <div className="home">
-     <h1 style={{
+        <h1 style={{
       marginTop:"10px"
      }}><Logo/></h1> 
+      <div className="header">
+        <h2>Deepak</h2>
+     <h4>jaiswalpak450@gmail.com</h4></div>
+     
       <h1>Create Note</h1>
       <form action="">
         <div className="input-label">

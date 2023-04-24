@@ -1,11 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+/* eslint-disable no-undef */
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { UilEye, UilEyeSlash } from "@iconscout/react-unicons";
 import { UilInfo } from "@iconscout/react-unicons";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import Logo from "../../Logo";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 const Register = () => {
+  const [err, setErr] = useState(false);
+  const navigate=useNavigate();
   const myFunction = () => {
     var x = document.getElementById("password");
     var y = document.getElementById("eyeSlash");
@@ -17,7 +21,7 @@ const Register = () => {
       y.style.display = "none";
     }
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
@@ -31,21 +35,23 @@ const Register = () => {
     if (password !== confirmPassword) {
       alert("Passwords do not match");
       return;
-    }
-    // console.log(name, email, phno, password);
-//To create a new user account with a email and password
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user)
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
+    }    
+    try {
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      console.log(res.user)
+
+      //creating a firebase database
+      await setDoc(doc(db, "users", res.user.uid), {
+        userID: res.user.uid,
+        displayName: name,
+        email: res.user.email,
       });
+      
+      await setDoc(doc(db,"useNotes",res.user.uid),{})
+      navigate("/home")
+    } catch (err) {
+      setErr(true);
+    }
   };
   return (
     <div className="personRegister">
